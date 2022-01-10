@@ -29,12 +29,17 @@ function startGame() {
   let secondCard;
   firstCard = getRandomCard();
   secondCard = getRandomCard();
+  cards.push(firstCard);
+  cards.push(secondCard);
+  console.log(cards);
   sum = firstCard + secondCard;
-  cardsEl.textContent = "Cards : " + firstCard + " " + secondCard;
-  sumEl.textContent = "Sum : " + sum;
+  renderGame();
 }
 
-function renderGame() {}
+function renderGame() {
+  cardsEl.textContent = "Cards : " + cards;
+  sumEl.textContent = "Sum : " + sum;
+}
 
 function newCard() {
   if (isAlive) {
