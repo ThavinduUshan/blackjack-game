@@ -43,5 +43,11 @@ function renderGame() {
 
 function newCard() {
   if (isAlive) {
+    let first = getRandomCard();
+    let second = getRandomCard();
+    sum += first + second;
+    cards.push(first);
+    cards.push(second);
+    renderGame();
   }
 }
