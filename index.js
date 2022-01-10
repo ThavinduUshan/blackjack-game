@@ -10,17 +10,31 @@ let cardsEl = document.getElementById("card-El");
 let cards = [];
 sum = 0;
 
+//random card function
+function getRandomCard() {
+  let randomNumber = Math.floor(Math.random() * 13) + 1;
+  if (randomNumber > 10) {
+    return 10;
+  } else if (randomNumber === 1) {
+    return 11;
+  } else {
+    return randomNumber;
+  }
+}
+
 //start game function
 function startGame() {
   isAlive = true;
   let firstCard;
   let secondCard;
-  firstCard = Math.floor(Math.random() * 10) + 1;
-  secondCard = Math.floor(Math.random() * 10) + 1;
+  firstCard = getRandomCard();
+  secondCard = getRandomCard();
   sum = firstCard + secondCard;
   cardsEl.textContent = "Cards : " + firstCard + " " + secondCard;
   sumEl.textContent = "Sum : " + sum;
 }
+
+function renderGame() {}
 
 function newCard() {
   if (isAlive) {
