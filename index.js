@@ -37,17 +37,24 @@ function startGame() {
 }
 
 function renderGame() {
+  if (sum < 21) {
+    messageEl.textContent = "Do you want to get a new card?";
+  }
+  if (sum === 21) {
+    messageEl.textContent = "You've got Black Jack";
+  }
+  if (sum > 21) {
+    messageEl.textContent = "You Lost. Let's Retry!";
+  }
   cardsEl.textContent = "Cards : " + cards;
   sumEl.textContent = "Sum : " + sum;
 }
 
 function newCard() {
   if (isAlive) {
-    let first = getRandomCard();
-    let second = getRandomCard();
-    sum += first + second;
-    cards.push(first);
-    cards.push(second);
+    let card = getRandomCard();
+    sum += card;
+    cards.push(card);
     renderGame();
   }
 }
