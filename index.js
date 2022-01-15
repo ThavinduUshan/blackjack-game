@@ -24,16 +24,18 @@ function getRandomCard() {
 
 //start game function
 function startGame() {
-  isAlive = true;
-  let firstCard;
-  let secondCard;
-  firstCard = getRandomCard();
-  secondCard = getRandomCard();
-  cards.push(firstCard);
-  cards.push(secondCard);
-  console.log(cards);
-  sum = firstCard + secondCard;
-  renderGame();
+  if (!isAlive) {
+    isAlive = true;
+    let firstCard;
+    let secondCard;
+    firstCard = getRandomCard();
+    secondCard = getRandomCard();
+    cards.push(firstCard);
+    cards.push(secondCard);
+    console.log(cards);
+    sum = firstCard + secondCard;
+    renderGame();
+  }
 }
 
 function renderGame() {
@@ -45,6 +47,9 @@ function renderGame() {
   }
   if (sum > 21) {
     messageEl.textContent = "You Lost. Let's Retry!";
+    isAlive = true;
+    cards = [];
+    sum = "";
   }
   cardsEl.textContent = "Cards : " + cards;
   sumEl.textContent = "Sum : " + sum;
