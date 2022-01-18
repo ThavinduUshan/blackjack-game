@@ -6,6 +6,8 @@ let messageEl = document.getElementById("message-El");
 let sumEl = document.getElementById("sum-El");
 let cardsEl = document.getElementById("card-El");
 let startEl = document.getElementById("start");
+let errorEl = document.getElementById("error");
+errorEl.style.display = "none";
 
 //cards array & sum
 let cards = [];
@@ -26,6 +28,7 @@ function getRandomCard() {
 //start game function
 function startGame() {
   if (!isAlive) {
+    errorEl.style.display = "none";
     isAlive = true;
     let firstCard;
     let secondCard;
@@ -71,5 +74,7 @@ function newCard() {
     sum += card;
     cards.push(card);
     renderGame();
+  } else {
+    errorEl.style.display = "block";
   }
 }
