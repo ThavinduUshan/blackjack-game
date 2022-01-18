@@ -5,6 +5,7 @@ let isAlive = false;
 let messageEl = document.getElementById("message-El");
 let sumEl = document.getElementById("sum-El");
 let cardsEl = document.getElementById("card-El");
+let startEl = document.getElementById("start");
 
 //cards array & sum
 let cards = [];
@@ -33,8 +34,16 @@ function startGame() {
     cards.push(firstCard);
     cards.push(secondCard);
     console.log(cards);
+    startEl.textContent = "END GAME";
     sum = firstCard + secondCard;
     renderGame();
+  } else {
+    isAlive = false;
+    cards = [];
+    sum = 0;
+    sumEl.textContent = "Sum :" + " ";
+    cardsEl.textContent = "Cards :" + " ";
+    startEl.textContent = "START GAME";
   }
 }
 
@@ -47,9 +56,10 @@ function renderGame() {
   }
   if (sum > 21) {
     messageEl.textContent = "You Lost. Let's Retry!";
-    isAlive = true;
+    isAlive = false;
     cards = [];
     sum = "";
+    startEl.textContent = "RESTART GAME";
   }
   cardsEl.textContent = "Cards : " + cards;
   sumEl.textContent = "Sum : " + sum;
