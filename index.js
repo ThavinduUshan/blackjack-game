@@ -28,7 +28,7 @@ function getRandomCard() {
 //start game function
 function startGame() {
   if (!isAlive) {
-    errorEl.style.display = "none";
+    errorEl.style.display = "none ";
     isAlive = true;
     let firstCard;
     let secondCard;
@@ -38,6 +38,7 @@ function startGame() {
     cards.push(secondCard);
     console.log(cards);
     startEl.textContent = "END GAME";
+    startEl.style.backgroundColor = "red";
     sum = firstCard + secondCard;
     renderGame();
   } else {
@@ -47,6 +48,7 @@ function startGame() {
     sumEl.textContent = "Sum :" + " ";
     cardsEl.textContent = "Cards :" + " ";
     startEl.textContent = "START GAME";
+    startEl.style.backgroundColor = "goldenrod";
   }
 }
 
@@ -63,6 +65,7 @@ function renderGame() {
     cards = [];
     sum = "";
     startEl.textContent = "RESTART GAME";
+    startEl.style.backgroundColor = "goldenrod";
   }
   cardsEl.textContent = "Cards : " + cards;
   sumEl.textContent = "Sum : " + sum;
